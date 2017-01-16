@@ -1,0 +1,54 @@
+<div class="container">
+
+  <h2>User Verwaltung</h2>
+
+
+  <div class="row">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-9">
+            <span class="glyphicon glyphicon-list"></span> Userlist
+          </div>
+          <div class="col-xs-3">
+            <button [routerLink]="['/players/add']" type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-plus"></span>
+              User hinzufügen
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-group">
+          <li *ngFor='let dto of players' class="list-group-item">
+            <div class="row">
+              <div class="col-xs-9">
+                <a [routerLink]="['/players/details', dto.player.id]">{{dto.player.userName}}</a>
+              </div>
+              <div class="col-xs-3">
+                <button class="btn btn-default" [routerLink]="['/players/edit', dto.player.id]">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button class="btn btn-default" (click)="deleteUser(dto.player)">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-xs-6">
+            <h6>Total Count <span class="label label-info"> {{players.length}}</span></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

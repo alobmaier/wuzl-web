@@ -23,7 +23,7 @@ export class AuthService {
 
   public isAdmin(): boolean {
     const token = localStorage.getItem('id_token');
-    return token ? this.jwtHelper.decodeToken(token).role === 'admin' : false;
+    return token ? this.jwtHelper.decodeToken(token).role === 'Administrator' : false;
   }
 
   public login(username: string, password: string) {

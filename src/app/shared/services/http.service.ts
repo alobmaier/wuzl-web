@@ -5,6 +5,7 @@ import { AuthHttp } from "angular2-jwt";
 import {Http} from '@angular/http';
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/share';
 
 @Injectable()
 export class HttpService {
@@ -49,13 +50,14 @@ export class HttpService {
   private getByRequestType(reqType : string, url : string, body? : Object, options? : RequestOptionsArgs) : Observable<Response> {
     switch(reqType) {
       case 'get':
-        return this.authHttp.get(url, options);
+        console.log("test");
+        return this.authHttp.get(url, options).share(); // share to return a "hot" Observable!
       case 'post':
-        return this.authHttp.post(url, body, options);
+        return this.authHttp.post(url, body, options).share();
       case 'put':
-        return this.authHttp.put(url, body, options);
+        return this.authHttp.put(url, body, options).share();
       case 'delete':
-        return this.authHttp.delete(url, options);
+        return this.authHttp.delete(url, options).share();
     }
   }
 

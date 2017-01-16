@@ -1,0 +1,34 @@
+<div class="container">
+
+  <div *ngIf="loaded" class="panel panel-default">
+
+    <div class="panel-heading"><h2>{{dto.player.firstName}} {{dto.player.lastName}}</h2></div>
+    <div class="panel-body">
+
+      <table class="table table-striped">
+        <tbody>
+        <tr>
+          <td><b>Vorname</b></td>
+          <td>{{dto.player.firstName}}</td>
+        </tr>
+        <tr>
+          <td><b>Nachname</b></td>
+          <td>{{dto.player.lastName}}</td>
+        </tr>
+        <tr>
+          <td><b>Rolle</b></td>
+          <td>{{dto.role.name}}</td>
+        </tr>
+        <tr>
+          <td><b>E-Mail</b></td>
+          <td>{{dto.player.email}}</td>
+        </tr>
+        <tr>
+          <td><b>Anwesenheit</b></td>
+          <td>{{dto.player.attendance | attendance}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

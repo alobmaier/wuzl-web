@@ -9,6 +9,8 @@ import { AuthService } from "../shared/services/auth.service";
 })
 export class NavigationComponent {
 
+  isNavCollapsed : boolean = true;
+
   constructor(private router: Router,
               private authService: AuthService) {
   }

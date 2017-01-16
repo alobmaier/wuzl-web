@@ -9,11 +9,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from "./shared/services/auth.service";
 import { HttpService } from "./shared/services/http.service";
-
+import { PlayerService } from './shared/services/player.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PlayerListComponent } from './player-list/player-list.component';
+import { AdminComponent } from './admin/admin.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { AttendancePipe } from './shared/pipes/attendance.pipe';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -29,7 +33,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    PlayerListComponent,
+    AdminComponent,
+    PlayerDetailsComponent,
+    AttendancePipe
   ],
   imports: [
     NgbModule.forRoot(),
@@ -46,7 +54,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }
+    },
+    PlayerService
     ],
   bootstrap: [AppComponent]
 })

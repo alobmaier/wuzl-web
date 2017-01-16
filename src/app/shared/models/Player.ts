@@ -29,17 +29,17 @@ export interface Player {
 
     picturePath?: string;
 
-    attendance?: Player.AttendanceEnum;
+    attendance?: AttendanceEnum;
 
 }
-export namespace Player {
-    export enum AttendanceEnum {
-        Sunday = <any> 'Sunday',
-        Saturday = <any> 'Saturday',
-        Friday = <any> 'Friday',
-        Thursday = <any> 'Thursday',
-        Wednesday = <any> 'Wednesday',
-        Tuesday = <any> 'Tuesday',
-        Monday = <any> 'Monday'
-    }
+export enum AttendanceEnum {
+    Sunday = 1,
+    Saturday = 2,
+    Friday = 4,
+    Thursday = 8,
+    Wednesday = 16,
+    Tuesday = 32,
+    Monday = 64
+}
+export namespace PlayerNamespace {
 }
