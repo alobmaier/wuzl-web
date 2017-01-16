@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from "angular2-jwt";
+import {Http} from '@angular/http';
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/catch';
 
@@ -12,6 +13,7 @@ export class HttpService {
 
   constructor(private authHttp: AuthHttp) {
   }
+  
 
   private getCachedData(key: string): Response {
     //noinspection TypeScriptUnresolvedFunction
@@ -39,17 +41,38 @@ export class HttpService {
   }
 
   public post(url: string, body: Object, options?: RequestOptionsArgs): Observable<Response> {
+    console.log(environment.apiURL + url, body, options);
     return this.request('post', environment.apiURL + url, body, options);
+
+  }
+
+  private getByRequestType(reqType : string, url : string, body? : Object, options? : RequestOptionsArgs) : Observable<Response> {
+    switch(reqType) {
+      case 'get':
+        return this.authHttp.get(url, options);
+      case 'post':
+        return this.authHttp.post(url, body, options);
+      case 'put':
+        return this.authHttp.put(url, body, options);
+      case 'delete':
+        return this.authHttp.delete(url, options);
+    }
   }
 
   private request(reqType: string, url: string, body: Object, options: RequestOptionsArgs): Observable<Response> {
+    console.log("test1");
+    //const key: string = this.buildKey(url, body);
+    console.log("test2");
+    // const cacheData: Response = this.getCachedData(key);
+    
+    //const httpParams = this.buildHttpParams(url, body, options);
+    console.log("test3");
 
-    const key: string = this.buildKey(url, body);
-    const cacheData: Response = this.getCachedData(key);
 
-    const httpParams = this.buildHttpParams(url, body, options);
-    const response: Observable<Response> = this.authHttp[reqType].apply(this.authHttp, httpParams).share();
+    const response: Observable<Response> = this.getByRequestType(reqType, url, body, options);
+    
 
+    console.log("test4");
     
     response
       .catch(error => {

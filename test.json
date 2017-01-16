@@ -1,0 +1,1265 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "WuzlHub API",
+        "description": "A simple api",
+        "termsOfService": "None"
+    },
+    "basePath": "/",
+    "paths": {
+        "/api/CurrentStrength/{playerId}/{datetime}": {
+            "get": {
+                "tags": [
+                    "CurrentStrength"
+                ],
+                "operationId": "ApiCurrentStrengthByPlayerIdByDatetimeGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "dateTime",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/CurrentStrength/findallbyplayer/{playerId}": {
+            "get": {
+                "tags": [
+                    "CurrentStrength"
+                ],
+                "operationId": "ApiCurrentStrengthFindallbyplayerByPlayerIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/CurrentStrength/findcurrentstrengthofplayer/{playerId}": {
+            "get": {
+                "tags": [
+                    "CurrentStrength"
+                ],
+                "operationId": "ApiCurrentStrengthFindcurrentstrengthofplayerByPlayerIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/CurrentStrength": {
+            "post": {
+                "tags": [
+                    "CurrentStrength"
+                ],
+                "operationId": "ApiCurrentStrengthPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "currentStrength",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CurrentStrength"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/CurrentStrength/{playerId}/{dateTime}": {
+            "delete": {
+                "tags": [
+                    "CurrentStrength"
+                ],
+                "operationId": "ApiCurrentStrengthByPlayerIdByDateTimeDelete",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "dateTime",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/LiveResult/{matchId}/{dateTime}": {
+            "get": {
+                "tags": [
+                    "LiveResult"
+                ],
+                "operationId": "ApiLiveResultByMatchIdByDateTimeGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "dateTime",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/LiveResult/findresultsbymatch/{id}": {
+            "get": {
+                "tags": [
+                    "LiveResult"
+                ],
+                "operationId": "ApiLiveResultFindresultsbymatchByIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/LiveResult": {
+            "post": {
+                "tags": [
+                    "LiveResult"
+                ],
+                "operationId": "ApiLiveResultPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "liveResult",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/LiveResult"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Match/{matchId}": {
+            "get": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchByMatchIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchByMatchIdDelete",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Match/findbytournament/{tournamentId}": {
+            "get": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchFindbytournamentByTournamentIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Match/findfinishedmatches": {
+            "get": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchFindfinishedmatchesGet",
+                "consumes": [],
+                "produces": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Match": {
+            "post": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "match",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Match"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Match/{id}": {
+            "put": {
+                "tags": [
+                    "Match"
+                ],
+                "operationId": "ApiMatchByIdPut",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "match",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Match"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerGet",
+                "consumes": [],
+                "produces": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "player",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/{playerId}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerByPlayerIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerByPlayerIdPut",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "player",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerByPlayerIdDelete",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/findbyusername/{username}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerFindbyusernameByUsernameGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/findbyrole/{roleId}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerFindbyroleByRoleIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "roleId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/findbyemail/{email}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerFindbyemailByEmailGet",
+                "consumes": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Player"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/findbyattendance/{attendance}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerFindbyattendanceByAttendanceGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "attendance",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "Sunday",
+                            "Saturday",
+                            "Friday",
+                            "Thursday",
+                            "Wednesday",
+                            "Tuesday",
+                            "Monday"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Player/{playerId}/profilepic": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerByPlayerIdProfilepicGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "ApiPlayerByPlayerIdProfilepicPost",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "ContentType",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ContentDisposition",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Headers",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "object"
+                    },
+                    {
+                        "name": "Length",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "Name",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "FileName",
+                        "in": "modelbinding",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Role": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "operationId": "ApiRoleGet",
+                "consumes": [],
+                "produces": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Role/{roleId}": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "operationId": "ApiRoleByRoleIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "roleId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Team": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "ApiTeamGet",
+                "consumes": [],
+                "produces": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "ApiTeamPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Team"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Team/{teamId}": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "ApiTeamByTeamIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Team/findteamsbyplayer/{playerId}": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "ApiTeamFindteamsbyplayerByPlayerIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentGet",
+                "consumes": [],
+                "produces": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournament",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Tournament"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/{id}": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentByIdGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/{tournamentId}/insertplayers": {
+            "post": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentByTournamentIdInsertplayersPost",
+                "consumes": [
+                    "application/json",
+                    "text/json",
+                    "application/json-patch+json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "playerIds",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "format": "int32",
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/{tournamentId}/getplayers": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentByTournamentIdGetplayersGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/{tournamentId}/creatematches/{amount}": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentByTournamentIdCreatematchesByAmountGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "amount",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/{tournamentId}/getmatches": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentByTournamentIdGetmatchesGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Tournament/findbydate/{date}": {
+            "get": {
+                "tags": [
+                    "Tournament"
+                ],
+                "operationId": "ApiTournamentFindbydateByDateGet",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/Twitter/gethashtag": {
+            "get": {
+                "tags": [
+                    "Twitter"
+                ],
+                "operationId": "ApiTwitterGethashtagGet",
+                "consumes": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "CurrentStrength": {
+            "type": "object",
+            "properties": {
+                "playerId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "currentDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "strength": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "LiveResult": {
+            "type": "object",
+            "properties": {
+                "matchId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "entryAdded": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "goalsTeam1": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "goalsTeam2": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Match": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tournamentId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "team1Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "team2Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "hasEnded": {
+                    "type": "boolean"
+                },
+                "goalsTeam1": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "goalsTeam2": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Player": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "roleId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "picturePath": {
+                    "type": "string"
+                },
+                "attendance": {
+                    "enum": [
+                        "Sunday",
+                        "Saturday",
+                        "Friday",
+                        "Thursday",
+                        "Wednesday",
+                        "Tuesday",
+                        "Monday"
+                    ],
+                    "type": "string"
+                }
+            }
+        },
+        "Team": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "player1Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "player2Id": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Tournament": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "countdownSeconds": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {}
+}

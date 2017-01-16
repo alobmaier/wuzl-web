@@ -7,8 +7,12 @@ import { LoggedInGuardService } from "./shared/services/logged-in-guard.service"
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-    canActivate: [LoggedInGuardService]
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'login',

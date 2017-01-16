@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { HttpService } from "./http.service";
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { NotificationsService } from "angular2-notifications"
-
+import { URLSearchParams, Headers } from '@angular/http';
 
 @Injectable()
 export class AuthService {
@@ -26,14 +26,25 @@ export class AuthService {
     return token ? this.jwtHelper.decodeToken(token).role === 'admin' : false;
   }
 
-  public login(email: string, password: string) {
-    this.authHttp.post('/user/login', { email, password })
+  public login(username: string, password: string) {
+    console.log("in login", username, password);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('username', username);
+    urlSearchParams.append('password', password);
+    let body = urlSearchParams.toString();
+
+    this.authHttp.post('/login', body, {headers: headers})
       .subscribe(response => {
-          this.saveJwt(response.json().token);
-          this.router.navigate(['']);
+          console.log(response.json());
+          this.saveJwt(response.json().access_token);
+
+          this.router.navigate(['/dashboard']);
         },
         error => {
-          this.notificationService.error("Login Error", "Wrong Email or Password");
+          this.notificationService.error("Login Error", "Wrong Username or Password");
         });
   }
 

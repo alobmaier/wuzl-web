@@ -19,7 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
     headerPrefix: ' ',
-    globalHeaders: [{'Content-Type':'application/json'}],
+    //globalHeaders: [{'Content-Type':'application/json'}],
     noJwtError: true
   }), http, options);
 }
