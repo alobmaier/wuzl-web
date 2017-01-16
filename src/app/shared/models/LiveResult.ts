@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface LiveResult {
+export class LiveResult {
     matchId?: number;
 
     entryAdded?: Date;

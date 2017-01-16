@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 
+import { Player } from '../models/Player';
 import { PlayerDto } from '../models/PlayerDto';
 
 @Injectable()
@@ -14,7 +15,6 @@ export class PlayerService {
   }
 
   getAllPlayers() : Observable<PlayerDto[]> {
-    console.log("testsfg");
     return this.authHttp.get('/player')
       .map(res => <PlayerDto[]>res.json());
   }
@@ -22,6 +22,9 @@ export class PlayerService {
   getById(id : number) : Observable<PlayerDto> {
     return this.authHttp.get('/player/' + id)
       .map(res => <PlayerDto>res.json());
+  }
+  createPlayer(player : Player) : Observable<any>{
+    return this.authHttp.post('/player', JSON.stringify(player));
   }
 
 }

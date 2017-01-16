@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface Role {
+export class Role {
     id?: number;
 
     name?: string;

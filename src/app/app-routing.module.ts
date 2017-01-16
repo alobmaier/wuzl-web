@@ -5,6 +5,7 @@ import { LoginComponent } from "./login/login.component";
 import { AdminComponent } from './admin/admin.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
 import { LoggedInGuardService } from "./shared/services/logged-in-guard.service";
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'players',
     component: PlayerListComponent
+  },
+  {
+    path: 'players/add',
+    component: PlayerFormComponent
   },
   {
     path: 'players/details/:id',

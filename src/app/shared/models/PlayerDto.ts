@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface PlayerDto {
+export class PlayerDto {
     id?: number;
 
     role?: models.Role;

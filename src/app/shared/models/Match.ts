@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface Match {
+export class Match {
     id?: number;
 
     tournamentId?: number;

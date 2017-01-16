@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface CurrentStrength {
+export class CurrentStrength {
     playerId?: number;
 
     currentDateTime?: Date;

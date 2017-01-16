@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface Team {
+export class Team {
     id?: number;
 
     player1Id?: number;

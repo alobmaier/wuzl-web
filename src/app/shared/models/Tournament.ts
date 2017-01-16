@@ -12,7 +12,7 @@
 
 import * as models from './models';
 
-export interface Tournament {
+export class Tournament {
     id?: number;
 
     date?: Date;
