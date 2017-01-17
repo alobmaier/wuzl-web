@@ -1,3 +1,4 @@
+import { MatchService } from './shared/services/match.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -71,7 +72,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     },
     PlayerService,
     RoleService,
-    TournamentService
+    TournamentService,
+    MatchService
     ],
   bootstrap: [AppComponent]
 })

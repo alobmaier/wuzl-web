@@ -1,3 +1,61 @@
-<p>
-  tournament-details works!
-</p>
+<div class="container">
+  <div *ngIf="loaded" class="panel panel-default">
+    <div class="panel-heading"><h2>{{dto.tournament.date | date}} {{dto.tournament.name}}</h2></div>
+    <div class="panel-body">
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td><b>Id</b></td>
+            <td>{{dto.id}}</td>
+          </tr>
+          <tr>
+            <td><b>Countdown</b></td>
+            <td><div *ngIf="dto.tournament.countdownSeconds">{{dto.tournament.countdownSeconds}}</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <h3>Matches</h3>
+      <div>
+        <ul class="list-group">
+          <li href="#" *ngFor="let match of dto.matchesInTournament" class="list-group-item">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                  <ul class="list-group">
+                    <li class="list-group-item">{{match.team1.player1.player.userName}}</li>
+                    <li class="list-group-item">{{match.team1.player2.player.userName}}</li>
+                  </ul>
+                </div>
+                <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
+                  <div class="list-group">
+                    <div *ngIf="this.authService.isAdmin()" class="list-group-item">
+                      <input class="form-control short" type="number" name="goalsTeam1" id="goalsTeam1" [(ngModel)]="match.match.goalsTeam1">
+                      -
+                      <input class="form-control short" type="number" name="goalsTeam2" id="goalsTeam2" [(ngModel)]="match.match.goalsTeam2"> 
+                    </div>
+                    <div *ngIf="!this.authService.isAdmin()" class="list-group-item">
+                      {{match.match.goalsTeam1}}
+                      -
+                      {{match.match.goalsTeam2}}
+                    </div>
+                    <div *ngIf="this.authService.isAdmin()" class="list-group-item">
+                      <button class="btn btn-info" (click)="saveResult(match.match)">Update result</button>
+                      <button class="btn btn-warning" *ngIf="!match.match.hasEnded" (click)="endMatch(match.match)">Mark as ended</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 text-center">
+                  <ul class="list-group">
+                    <li class="list-group-item">{{match.team2.player1.player.userName}}</li>
+                    <li class="list-group-item">{{match.team2.player2.player.userName}}</li>
+                  </ul>
+                </div>
+            </div>
+            <hr>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,7 @@
+import { AuthService } from '../shared/services/auth.service';
+import { NotificationsService } from 'angular2-notifications';
+import { TournamentDto } from '../shared/models/models';
+import { TournamentService } from '../shared/services/tournament.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TournamentListComponent implements OnInit {
 
-  constructor() { }
+  private tournaments : TournamentDto[] = [];
+  constructor(private tournamentService : TournamentService,
+              private authService : AuthService,
+              private notificationService : NotificationsService) { }
 
   ngOnInit() {
+    this.tournamentService.getAllTournaments()
+      .subscribe(
+        res => this.tournaments = res,
+        error => this.notificationService.error("Error", error)
+      )
   }
 
 }

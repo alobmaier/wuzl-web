@@ -1,0 +1,11 @@
+.livescore {
+    font-size: 25px;
+    color: indianred;
+}
+.finished {
+    color: lightgreen;
+}
+.short {
+    display: inline-block;
+    width: 100px;
+}

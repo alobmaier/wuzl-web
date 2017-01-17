@@ -24,8 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
-    canActivate: [LoggedInGuardService]
+    component: LoginComponent
   },
   {
     path: 'admin',

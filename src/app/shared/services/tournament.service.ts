@@ -25,4 +25,8 @@ export class TournamentService {
     return this.authHttp.get('/tournament/findbydate/' + new Date().toDateString())
       .map(res => <TournamentDto>res.json());
   }
+  getById(tournamentId : number) : Observable<TournamentDto> {
+    return this.authHttp.get(`/tournament/${tournamentId}`)
+      .map(res => <TournamentDto>res.json());
+  }
 }

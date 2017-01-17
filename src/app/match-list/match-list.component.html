@@ -8,8 +8,8 @@
               <li class="list-group-item">{{match.team1.player2.player.userName}}</li>
             </ul>
           </div>
-          <div class="col-md-4 text-center">
-            0 - 0
+          <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
+            {{match.match.goalsTeam1}} - {{match.match.goalsTeam2}}
           </div>
           <div class="col-md-4 text-center">
             <ul class="list-group">
