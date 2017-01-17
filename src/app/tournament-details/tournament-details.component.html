@@ -41,7 +41,7 @@
                     </div>
                     <div *ngIf="this.authService.isAdmin()" class="list-group-item">
                       <button class="btn btn-info" (click)="saveResult(match.match)">Update result</button>
-                      <button class="btn btn-warning" *ngIf="!match.match.hasEnded" (click)="endMatch(match.match)">Mark as ended</button>
+                      <button class="btn btn-danger" *ngIf="!match.match.hasEnded" (click)="endMatch(match.match)">Mark as ended</button>
                     </div>
                   </div>
                 </div>

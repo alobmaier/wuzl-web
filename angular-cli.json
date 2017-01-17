@@ -19,7 +19,7 @@
       "mobile": false,
       "styles": [
          "../node_modules/bootstrap/dist/css/bootstrap.css",
-         "bootstrap-flatly.css",
+         "bootstrap-cyborg.css",
          "styles.css"
       ],
       "scripts": [],
