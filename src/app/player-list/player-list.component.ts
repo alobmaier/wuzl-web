@@ -4,6 +4,7 @@ import { PlayerDto } from '../shared/models/PlayerDto';
 import { Player } from '../shared/models/Player';
 import { PlayerService } from '../shared/services/player.service';
 import { NotificationsService } from "angular2-notifications";
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-player-list',
@@ -13,7 +14,7 @@ import { NotificationsService } from "angular2-notifications";
 export class PlayerListComponent implements OnInit {
 
   public players : Array<PlayerDto> = [];
-  constructor(private playerService : PlayerService, private notificationService : NotificationsService) { }
+  constructor(private playerService : PlayerService, private notificationService : NotificationsService, private authService : AuthService) { }
 
   ngOnInit() {
     this.playerService.getAllPlayers()

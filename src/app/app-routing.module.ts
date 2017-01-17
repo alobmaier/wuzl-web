@@ -18,36 +18,44 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    // is public for everyone
     path: 'dashboard',
     component: DashboardComponent
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'players',
-    component: PlayerListComponent
+    component: PlayerListComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'players/add',
-    component: PlayerFormComponent
+    component: PlayerFormComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'players/details/:id',
-    component: PlayerDetailsComponent
+    component: PlayerDetailsComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'tournaments',
-    component: TournamentListComponent
+    component: TournamentListComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'tournaments/add',
-    component: TournamentFormComponent
+    component: TournamentFormComponent,
+    canActivate: [LoggedInGuardService]
   },
   {
     path: 'tournaments/details/:id',

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2>User Verwaltung</h2>
+  <h2>Players</h2>
 
 
   <div class="row">
@@ -12,9 +12,9 @@
             <span class="glyphicon glyphicon-list"></span> Userlist
           </div>
           <div class="col-xs-3">
-            <button [routerLink]="['/players/add']" type="button" class="btn btn-default">
+            <button *ngIf="this.authService.isAdmin()" [routerLink]="['/players/add']" type="button" class="btn btn-default">
               <span class="glyphicon glyphicon-plus"></span>
-              User hinzufügen
+              Add user
             </button>
           </div>
         </div>
@@ -28,10 +28,10 @@
                 <a [routerLink]="['/players/details', dto.player.id]">{{dto.player.userName}}</a>
               </div>
               <div class="col-xs-3">
-                <button class="btn btn-default" [routerLink]="['/players/edit', dto.player.id]">
+                <button *ngIf="this.authService.isAdmin()" class="btn btn-default" [routerLink]="['/players/edit', dto.player.id]">
                   <span class="glyphicon glyphicon-pencil"></span>
                 </button>
-                <button class="btn btn-default" (click)="deleteUser(dto)">
+                <button *ngIf="this.authService.isAdmin()" class="btn btn-default" (click)="deleteUser(dto)">
                   <span class="glyphicon glyphicon-remove"></span>
                 </button>
               </div>
