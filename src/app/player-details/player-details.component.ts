@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { PlayerService } from '../shared/services/player.service';
 import { PlayerDto } from '../shared/models/PlayerDto';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-player-details',
@@ -27,8 +28,10 @@ export class PlayerDetailsComponent implements OnInit {
     this.playerService.getById(this.id)
         .subscribe(
           res => {
-            this.dto = res;           
+            this.dto = res;          
             this.loaded = true;
+            if(this.dto.player.picturePath)
+              this.dto.player.picturePath = environment.baseURL + this.dto.player.picturePath;
 }         ,
           error => this.notificationService.error("Server error", error.json().msg)
         )

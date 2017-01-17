@@ -5,3 +5,7 @@ export * from './Player';
 export * from './Team';
 export * from './Tournament';
 export * from './Role';
+export * from './TournamentDto';
+export * from './PlayerDto';
+export * from './TeamDto';
+export * from './MatchDto';

@@ -1,0 +1,23 @@
+<div>
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Ranklist
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <th># Rank</th>
+            <th>Username</th>
+            <th>Skill</th>
+          </tr>
+          <tr *ngFor="let dto of players; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{dto.player.userName}}</td>
+            <td>{{dto.strength.strength}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

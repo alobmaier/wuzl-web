@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed" id="main_navbar">
       <ul class="nav navbar-nav">
         <li><a *ngIf="!this.authService.loggedIn()" [routerLink]="['/login']">Login</a></li>
-        <li><a *ngIf="this.authService.isAdmin()" [routerLink]="['/admin']">Admin</a></li>
+        <li><a *ngIf="this.authService.isAdmin() && this.authService.loggedIn()" [routerLink]="['/admin']">Admin</a></li>
         <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/players']">Players</a></li>
         <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/']" (click)="this.authService.logout()">Logout</a></li>
       </ul>

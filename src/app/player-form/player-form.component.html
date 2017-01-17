@@ -1,10 +1,13 @@
 <div class="container">
   <h2>New user</h2>
   <form (submit)="createPlayer()">
+    <!-- picture -->
     <div class="form-group">
       <label>Select profile pic: </label>
-      <app-file-upload></app-file-upload>
+      <input type="file" (change)="onImageChanged($event)">
+      <img [src]="previewImgUrl" class="player-pic">
     </div>
+
     <div class="form-group">
       <label for="firstName">First name:</label>
       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John" [(ngModel)]="model.firstName">
@@ -30,6 +33,37 @@
       <select class="form-control" name="role" [(ngModel)]="model.roleId">
         <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
       </select>
+    </div>
+    <div class="form-group">
+      <label>Attendance: </label>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isMonday" name="isMonday" [value]="attendanceEnum.Monday"
+                      (change)="updateAttendance($event)">Monday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isTuesday" name="isTuesday" [value]="attendanceEnum.Tuesday"
+                      (change)="updateAttendance($event)">Tuesday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isWednesday" name="isWednesday" [value]="attendanceEnum.Wednesday"
+                      (change)="updateAttendance($event)">Wednesday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isThursday" name="isThursday" [value]="attendanceEnum.Thursday"
+                      (change)="updateAttendance($event)">Thursday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isFriday" name="isFriday" [value]="attendanceEnum.Friday"
+                      (change)="updateAttendance($event)">Friday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isSaturday" name="isSaturday" [value]="attendanceEnum.Saturday"
+                      (change)="updateAttendance($event)">Saturday</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" id="isSunday" name="isSunday" [value]="attendanceEnum.Sunday"
+                      (change)="updateAttendance($event)">Sunday</label>
+      </div>
     </div>
 
     <div class="form-group">

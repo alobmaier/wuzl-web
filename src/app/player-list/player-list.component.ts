@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerDto } from '../shared/models/PlayerDto';
 
+import { Player } from '../shared/models/Player';
 import { PlayerService } from '../shared/services/player.service';
 import { NotificationsService } from "angular2-notifications";
 
@@ -25,6 +26,19 @@ export class PlayerListComponent implements OnInit {
           this.notificationService.error("Server Error", "Could not get players");
         }
       );
+  }
+
+  deleteUser(dto : PlayerDto) {
+    this.playerService.deletePlayer(dto.id).subscribe(
+      res => this.notificationService.info("Deleted", `Player ${dto.player.userName} was deleted successfully.`),
+      error => this.notificationService.error('Error', error),
+      () => {
+        let index = this.players.indexOf(dto);
+        this.players.splice(index, 1);
+        console.log(this.players);
+      }
+      
+    );
   }
 
 }

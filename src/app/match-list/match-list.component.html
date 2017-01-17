@@ -1,0 +1,23 @@
+<div>
+  <ul class="list-group">
+    <li href="#" *ngFor="let match of currentTournament.matchesInTournament" class="list-group-item">
+      <div class="row">
+          <div class="col-md-4 text-center">
+            <ul class="list-group">
+              <li class="list-group-item">{{match.team1.player1.player.userName}}</li>
+              <li class="list-group-item">{{match.team1.player2.player.userName}}</li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center">
+            0 - 0
+          </div>
+          <div class="col-md-4 text-center">
+            <ul class="list-group">
+              <li class="list-group-item">{{match.team2.player1.player.userName}}</li>
+              <li class="list-group-item">{{match.team2.player2.player.userName}}</li>
+            </ul>
+          </div>
+      </div>
+    </li>
+  </ul>
+</div>

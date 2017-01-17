@@ -27,9 +27,9 @@ export class Player {
 
     email?: string;
 
-    picturePath?: string;
+    picturePath?: string = "";
 
-    attendance?: AttendanceEnum;
+    attendance?: AttendanceEnum = 0;
 
 }
 export enum AttendanceEnum {

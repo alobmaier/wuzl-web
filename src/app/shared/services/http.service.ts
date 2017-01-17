@@ -44,7 +44,12 @@ export class HttpService {
   public post(url: string, body: Object, options?: RequestOptionsArgs): Observable<Response> {
     console.log(environment.apiURL + url, body, options);
     return this.request('post', environment.apiURL + url, body, options);
-
+  }
+  public delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
+    return this.request('delete', environment.apiURL + url, null, options);
+  }
+  public put(url: string, body: Object, options?: RequestOptionsArgs): Observable<Response> {
+    return this.request('put', environment.apiURL + url, body, options);
   }
 
   private getByRequestType(reqType : string, url : string, body? : Object, options? : RequestOptionsArgs) : Observable<Response> {
