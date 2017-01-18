@@ -28,6 +28,7 @@ import { TournamentListComponent } from './tournament-list/tournament-list.compo
 import { TournamentDetailsComponent } from './tournament-details/tournament-details.component';
 import { TournamentFormComponent } from './tournament-form/tournament-form.component';
 import { MyMatchesComponent } from './my-matches/my-matches.component';
+import { PlayerEditComponent } from './player-edit/player-edit.component';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -54,7 +55,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TournamentListComponent,
     TournamentDetailsComponent,
     TournamentFormComponent,
-    MyMatchesComponent
+    MyMatchesComponent,
+    PlayerEditComponent
   ],
   imports: [
     NgbModule.forRoot(),

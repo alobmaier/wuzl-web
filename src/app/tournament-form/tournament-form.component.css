@@ -1,0 +1,9 @@
+.player-list {
+    height: 200px; 
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.player-list > li{
+    list-style-type: none;
+}

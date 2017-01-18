@@ -15,6 +15,7 @@
         <li><a *ngIf="!this.authService.loggedIn()" [routerLink]="['/login']">Login</a></li>
         <li><a *ngIf="this.authService.isAdmin() && this.authService.loggedIn()" [routerLink]="['/admin']">Admin</a></li>
         <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/players']">Players</a></li>
+        <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/mymatches']">My matches</a></li>
         <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/tournaments']">Tournaments</a></li>
         <!--<li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/mymatches']">My matches</a></li>-->
         <li><a *ngIf="this.authService.loggedIn()" [routerLink]="['/']" (click)="this.authService.logout()">Logout</a></li>

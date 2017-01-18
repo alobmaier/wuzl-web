@@ -57,8 +57,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  public getCurrentUserEmail(): string {
+  public getCurrentUserName(): string {
     const token = localStorage.getItem('id_token');
-    return this.jwtHelper.decodeToken(token).email;
+    return this.jwtHelper.decodeToken(token).sub;
   }
 }

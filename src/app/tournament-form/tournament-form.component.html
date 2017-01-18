@@ -1,3 +1,36 @@
-<p>
-  tournament-form works!
-</p>
+<div class="container">
+  <h2>New tournament</h2>
+  <form (submit)="createTournament()">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="tournament2" [(ngModel)]="model.name">
+    </div>
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="model.date">
+    </div>
+    <div class="form-group">
+      <label for="countdown">Countdown in seconds:</label>
+      <input type="number" class="form-control" id="countdown" name="countdown" placeholder="10" [(ngModel)]="model.countdownSeconds">
+    </div>
+    <div class="form-group">
+      <label for="numberOfMatches">Number of matches:</label>
+      <input type="number" class="form-control" id="numberOfMatches" name="numberOfMatches" placeholder="10" [(ngModel)]="numberOfMatches">
+    </div>
+
+    <div *ngIf="loaded" class="form-group">
+      <ul class="player-list">
+        <li *ngFor="let p of players">
+          <label><input type="checkbox" [name]="p.player.userName" [(ngModel)]="selectedPlayers[p.player.id]">{{p.player.userName}}</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    {{model | json}}
+
+  </form>
+</div>

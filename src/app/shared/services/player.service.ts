@@ -25,9 +25,17 @@ export class PlayerService {
     return this.authHttp.get('/player/' + id)
       .map(res => <PlayerDto>res.json());
   }
+  getByUserName(username : string) : Observable<PlayerDto> {
+    return this.authHttp.get(`/player/findbyusername/${username}`)
+      .map(res => <PlayerDto>res.json());
+  }
   createPlayer(player : Player) : Observable<PlayerDto>{
     return this.authHttp.post('/player', JSON.stringify(player), {headers: this.defaultHeaders})
       .map(res => <PlayerDto>res.json());
+  }
+  updatePlayer(playerId : number, player : Player) : Observable<boolean> {
+    return this.authHttp.put(`/player/${playerId}`, JSON.stringify(player), {headers: this.defaultHeaders})
+      .map(res => <boolean>res.json());
   }
   uploadProfilePic(playerId : number, file : File) {
     let formData: FormData = new FormData(),

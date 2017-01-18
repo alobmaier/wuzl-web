@@ -1,3 +1,38 @@
-<p>
-  my-matches works!
-</p>
+<div *ngIf="loaded && matches.length > 0" class="container">
+  <ul class="list-group">
+    <li href="#" *ngFor="let match of matches" class="list-group-item">
+      <div class="row">
+          <div class="col-md-4 text-center">
+            <ul class="list-group">
+              <li class="list-group-item">{{match.team1.player1.player.userName}}</li>
+              <li class="list-group-item">{{match.team1.player2.player.userName}}</li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
+            <div class="col-sm-2 text-center">
+              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam1()">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </div>
+            <div class="col-md-4">
+              {{match.match.goalsTeam1}} - {{match.match.goalsTeam2}}
+            </div>
+            <div class="col-sm-2 text-center">
+              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam2()">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <ul class="list-group">
+              <li class="list-group-item">{{match.team2.player1.player.userName}}</li>
+              <li class="list-group-item">{{match.team2.player2.player.userName}}</li>
+            </ul>
+          </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="loaded && matches.length == 0" class="container">
+  <h3>No matches played yet.</h3>
+</div>

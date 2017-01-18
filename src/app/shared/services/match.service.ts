@@ -21,4 +21,10 @@ export class MatchService {
       .map(res => <boolean>res.json());
   }
 
+  getMatchesByPlayer(playerId : number) {
+    console.log
+    return this.authHttp.get(`/match/findbyplayer/${playerId}`)
+      .map(res => <MatchDto[]>res.json());
+  }
+
 }

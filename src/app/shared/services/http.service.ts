@@ -67,20 +67,8 @@ export class HttpService {
   }
 
   private request(reqType: string, url: string, body: Object, options: RequestOptionsArgs): Observable<Response> {
-    console.log("test1");
-    //const key: string = this.buildKey(url, body);
-    console.log("test2");
-    // const cacheData: Response = this.getCachedData(key);
-    
-    //const httpParams = this.buildHttpParams(url, body, options);
-    console.log("test3");
-
-
     const response: Observable<Response> = this.getByRequestType(reqType, url, body, options);
-    
-
-    console.log("test4");
-    
+  
     response
       .catch(error => {
         return Observable.throw(error || 'Server error');

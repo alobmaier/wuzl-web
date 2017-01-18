@@ -1,3 +1,5 @@
+import { PlayerEditComponent } from './player-edit/player-edit.component';
+import { MyMatchesComponent } from './my-matches/my-matches.component';
 import { TournamentDetailsComponent } from './tournament-details/tournament-details.component';
 import { TournamentFormComponent } from './tournament-form/tournament-form.component';
 import { NgModule } from '@angular/core';
@@ -47,6 +49,11 @@ const routes: Routes = [
     canActivate: [LoggedInGuardService]
   },
   {
+    path: 'players/edit/:id',
+    component: PlayerEditComponent,
+    canActivate: [LoggedInGuardService]
+  },
+  {
     path: 'tournaments',
     component: TournamentListComponent,
     canActivate: [LoggedInGuardService]
@@ -59,6 +66,10 @@ const routes: Routes = [
   {
     path: 'tournaments/details/:id',
     component: TournamentDetailsComponent
+  },
+  {
+    path: 'mymatches',
+    component: MyMatchesComponent
   },
   {
     path: '**',
