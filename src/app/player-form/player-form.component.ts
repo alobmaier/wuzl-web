@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RoleService } from '../shared/services/role.service';
 import { PlayerService } from '../shared/services/player.service';
@@ -34,6 +35,7 @@ export class PlayerFormComponent implements OnInit {
   
   constructor(private roleService : RoleService,
               private playerService : PlayerService,
+              private router : Router,
               private notificationService : NotificationsService) { 
               
   }
@@ -58,6 +60,11 @@ export class PlayerFormComponent implements OnInit {
         () =>{
           // todo: send post request to upload picture
           this.playerService.uploadProfilePic(player.id,this.file);
+          this.notificationService.success("Success", "Successfully created player.");
+
+
+          this.router.navigate(['/players']);
+          
         }
       )
   }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormArray } from '@angular/forms/src/model';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 import { Player, Tournament, PlayerDto, TournamentDto } from '../shared/models/models';
@@ -25,6 +26,7 @@ export class TournamentFormComponent implements OnInit {
 
   constructor(private tournamentService : TournamentService,
               private playerService : PlayerService,
+              private router : Router,
               private notificationService : NotificationsService,
               ) { }
 
@@ -37,7 +39,7 @@ export class TournamentFormComponent implements OnInit {
       selectedPlayers: this.fb.array([]) // push in players
     });*/
 
-
+    // this.model.date = new Date();
     this.playerService.getAllPlayers()
       .subscribe(
         res => this.players = res,

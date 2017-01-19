@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class TournamentListComponent implements OnInit {
 
   private tournaments : TournamentDto[] = [];
+  private loaded : boolean = false;
   constructor(private tournamentService : TournamentService,
               private authService : AuthService,
               private notificationService : NotificationsService) { }
@@ -20,7 +21,8 @@ export class TournamentListComponent implements OnInit {
     this.tournamentService.getAllTournaments()
       .subscribe(
         res => this.tournaments = res,
-        error => this.notificationService.error("Error", error)
+        error => this.notificationService.error("Error", error),
+        () => this.loaded = true
       )
   }
 

@@ -14,6 +14,7 @@ import { AuthService } from '../shared/services/auth.service';
 export class PlayerListComponent implements OnInit {
 
   public players : Array<PlayerDto> = [];
+  private loaded : boolean = false;
   constructor(private playerService : PlayerService, private notificationService : NotificationsService, private authService : AuthService) { }
 
   ngOnInit() {
@@ -25,7 +26,8 @@ export class PlayerListComponent implements OnInit {
         },
         error => {
           this.notificationService.error("Server Error", "Could not get players");
-        }
+        },
+        () => this.loaded = true
       );
   }
 

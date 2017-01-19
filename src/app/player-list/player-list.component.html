@@ -21,7 +21,7 @@
       </div>
 
       <div class="panel-body">
-        <ul class="list-group">
+        <ul *ngIf="this.loaded" class="list-group">
           <li *ngFor='let dto of players' class="list-group-item">
             <div class="row">
               <div class="col-xs-9">
@@ -38,6 +38,7 @@
             </div>
           </li>
         </ul>
+        <app-loading-spinner *ngIf="!this.loaded"></app-loading-spinner>
       </div>
 
 

@@ -18,7 +18,7 @@
       <hr>
       <h3>Matches</h3>
       <div>
-        <ul class="list-group">
+        <ul *ngIf="this.loaded" class="list-group">
           <li href="#" *ngFor="let match of dto.matchesInTournament" class="list-group-item">
             <div class="row">
                 <div class="col-md-4 text-center">
@@ -29,19 +29,19 @@
                 </div>
                 <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
                   <div class="list-group">
-                    <div *ngIf="this.authService.isAdmin()" class="list-group-item">
+                    <div *ngIf="this.authService.isAdmin && !match.match.hasEnded" class="list-group-item">
                       <input class="form-control short" type="number" name="goalsTeam1" id="goalsTeam1" [(ngModel)]="match.match.goalsTeam1">
                       -
                       <input class="form-control short" type="number" name="goalsTeam2" id="goalsTeam2" [(ngModel)]="match.match.goalsTeam2"> 
                     </div>
-                    <div *ngIf="!this.authService.isAdmin()" class="list-group-item">
+                    <div *ngIf="!this.authService.isAdmin() || match.match.hasEnded" class="list-group-item">
                       {{match.match.goalsTeam1}}
                       -
                       {{match.match.goalsTeam2}}
                     </div>
-                    <div *ngIf="this.authService.isAdmin()" class="list-group-item">
+                    <div *ngIf="this.authService.isAdmin() && !match.match.hasEnded" class="list-group-item">
                       <button class="btn btn-info" (click)="saveResult(match.match)">Update result</button>
-                      <button class="btn btn-danger" *ngIf="!match.match.hasEnded" (click)="endMatch(match.match)">Mark as ended</button>
+                      <button class="btn btn-danger" (click)="endMatch(match.match)">Mark as ended</button>
                     </div>
                   </div>
                 </div>
@@ -58,4 +58,5 @@
       </div>
     </div>
   </div>
+  <app-loading-spinner *ngIf="!this.loaded"></app-loading-spinner>
 </div>

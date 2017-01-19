@@ -33,7 +33,8 @@ export class PlayerDetailsComponent implements OnInit {
             if(this.dto.player.picturePath)
               this.dto.player.picturePath = environment.baseURL + this.dto.player.picturePath;
 }         ,
-          error => this.notificationService.error("Server error", error.json().msg)
+          error => this.notificationService.error("Server error", error.json().msg),
+          () => this.loaded = true
         )
   }
 

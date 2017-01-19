@@ -5,6 +5,8 @@ import { MatchService } from '../shared/services/match.service';
 import { MatchDto, PlayerDto } from '../shared/models/models';
 import { Component, OnInit } from '@angular/core';
 
+declare var $ : any;
+
 @Component({
   selector: 'app-my-matches',
   templateUrl: './my-matches.component.html',
@@ -24,6 +26,7 @@ export class MyMatchesComponent implements OnInit {
     let player : PlayerDto;
 
     let username = this.authService.getCurrentUserName();
+
     this.playerService.getByUserName(username)
       .subscribe(
         res => player = res,

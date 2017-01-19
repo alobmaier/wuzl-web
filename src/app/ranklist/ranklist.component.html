@@ -5,7 +5,7 @@
         Ranklist
       </div>
       <div class="panel-body">
-        <table class="table">
+        <table *ngIf="this.loaded" class="table">
           <tr>
             <th># Rank</th>
             <th>Username</th>
@@ -17,6 +17,7 @@
             <td>{{dto.strength.strength}}</td>
           </tr>
         </table>
+        <app-loading-spinner *ngIf="!this.loaded"></app-loading-spinner>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { environment } from '../../environments/environment';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RoleService } from '../shared/services/role.service';
 import { PlayerService } from '../shared/services/player.service';
@@ -37,6 +37,7 @@ export class PlayerEditComponent implements OnInit {
   
   constructor(private roleService : RoleService,
               private playerService : PlayerService,
+              private router : Router,
               private route : ActivatedRoute,
               private notificationService : NotificationsService) { 
 
@@ -68,12 +69,16 @@ export class PlayerEditComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          
         },
         error => this.notificationService.error("Error", error),
         () =>{
           // todo: send post request to upload picture
           console.log(this.model.id);
           this.playerService.uploadProfilePic(this.model.id,this.file);
+          this.notificationService.success("Success", "Successfully updated player.");
+
+          this.router.navigate(['/players']);
         }
       )
   }
