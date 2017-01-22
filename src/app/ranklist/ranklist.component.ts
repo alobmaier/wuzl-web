@@ -20,7 +20,7 @@ export class RanklistComponent implements OnInit, OnDestroy {
               private notificationService : NotificationsService) { }
   ngOnInit() {
 
-    let timer = TimerObservable.create(0, 5000); // every 5 secondsm ranklist is not too important
+    let timer = TimerObservable.create(0, 6000); // every 5 seconds, ranklist is not too important to be up-to-date
     this.subscription = timer.subscribe(
       t => this.pollRanklist()
     );
@@ -43,7 +43,7 @@ export class RanklistComponent implements OnInit, OnDestroy {
     this.playerService.getAllPlayers()
       .subscribe(
         res => this.players = res,
-        error => this.notificationService.error("Error", error),
+        error => this.notificationService.error("Error", "Ranklist cannot be fetched."),
         () =>{
           this.players.forEach(p =>{
             if(!p.strength) {

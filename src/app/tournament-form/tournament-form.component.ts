@@ -45,7 +45,6 @@ export class TournamentFormComponent implements OnInit {
         res => this.players = res,
         error => this.notificationService.error("Error", error),
         () => {
-          console.log(this.players);
           this.players.forEach(p => {
             this.selectedPlayers[p.player.userName] = false;
           });
@@ -72,13 +71,10 @@ export class TournamentFormComponent implements OnInit {
     // get players
     let players : number[] = [];
     this.selectedPlayers.forEach((isSelected, id)=>{
-      console.log(isSelected, id)
       if(isSelected == true) {
         players.push(id);
       }
     });
-    console.log(players);
-
 
     this.tournamentService.createTournament(this.model)
       .subscribe(
@@ -99,6 +95,11 @@ export class TournamentFormComponent implements OnInit {
                   .subscribe(
                     res => this.notificationService.success("Success", "Matches created in tournament!"),
                     error => this.notificationService.error("Error", error),
+                    () => {
+                      // done
+
+                      this.router.navigate(['/tournaments']);
+                    }
                   );
               }
           );

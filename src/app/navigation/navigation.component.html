@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed" id="main_navbar">
       <ul class="nav navbar-nav">
         <li [routerLinkActive]="['active']"><a *ngIf="!this.authService.loggedIn()" [routerLink]="['/login']">Login</a></li>
-        <li [routerLinkActive]="['active']"><a *ngIf="this.authService.isAdmin() && this.authService.loggedIn()" [routerLink]="['/admin']">Admin</a></li>
         <li [routerLinkActive]="['active']"><a *ngIf="this.authService.loggedIn()" [routerLink]="['/players']">Players</a></li>
         <li [routerLinkActive]="['active']"><a *ngIf="this.authService.loggedIn()" [routerLink]="['/mymatches']">My matches</a></li>
         <li [routerLinkActive]="['active']"><a *ngIf="this.authService.loggedIn()" [routerLink]="['/tournaments']">Tournaments</a></li>

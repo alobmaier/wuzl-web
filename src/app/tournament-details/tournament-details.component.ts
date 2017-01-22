@@ -36,7 +36,6 @@ export class TournamentDetailsComponent implements OnInit {
   }
 
   saveResult(match : Match) {
-    console.log("halllo");
     this.matchService.updateMatch(match)
       .subscribe(
         res => this.notificationService.success("Updated match", "Updated match successfully!"),
@@ -44,7 +43,6 @@ export class TournamentDetailsComponent implements OnInit {
       );
   }
   endMatch(match : Match) {
-    console.log("halloo");
     match.hasEnded = true;
     this.matchService.updateMatch(match)
       .subscribe(

@@ -45,7 +45,6 @@ export class PlayerEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id);
 
     this.roleService.getAllRoles()
       .subscribe(
@@ -68,13 +67,11 @@ export class PlayerEditComponent implements OnInit {
     this.playerService.updatePlayer(this.model.id, this.model)
       .subscribe(
         res => {
-          console.log(res);
           
         },
         error => this.notificationService.error("Error", error),
         () =>{
           // todo: send post request to upload picture
-          console.log(this.model.id);
           this.playerService.uploadProfilePic(this.model.id,this.file);
           this.notificationService.success("Success", "Successfully updated player.");
 
@@ -85,7 +82,6 @@ export class PlayerEditComponent implements OnInit {
 
   updateAttendance(event) {
     if(event.target.checked) {
-      console.log(event.target.value);
       this.model.attendance = (<number>this.model.attendance) + +event.target.value;
     }
     else {
@@ -94,7 +90,6 @@ export class PlayerEditComponent implements OnInit {
   }
   onImageChanged(event) {
     this.file = event.srcElement.files[0];
-    console.log(this.file);
 
     var reader = new FileReader();
 

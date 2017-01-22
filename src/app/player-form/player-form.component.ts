@@ -21,6 +21,7 @@ export class PlayerFormComponent implements OnInit {
 
   private previewImgUrl : URL;
   private file : File;
+  private fileName : string;
 
   private isMonday : boolean;
   private isTuesday : boolean;
@@ -53,7 +54,6 @@ export class PlayerFormComponent implements OnInit {
     this.playerService.createPlayer(this.model)
       .subscribe(
         res => {
-          console.log(res);
           player = res;
         },
         error => this.notificationService.error("Error", error),
@@ -68,13 +68,8 @@ export class PlayerFormComponent implements OnInit {
         }
       )
   }
-  uploadProfilePicture(playerId : number) {
-    console.log("test upload for id ", playerId);
-  }
-
   updateAttendance(event) {
     if(event.target.checked) {
-      console.log(event.target.value);
       this.model.attendance = (<number>this.model.attendance) + +event.target.value;
     }
     else {
@@ -83,7 +78,6 @@ export class PlayerFormComponent implements OnInit {
   }
   onImageChanged(event) {
     this.file = event.srcElement.files[0];
-    console.log(this.file);
 
     var reader = new FileReader();
 

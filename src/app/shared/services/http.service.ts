@@ -42,7 +42,6 @@ export class HttpService {
   }
 
   public post(url: string, body: Object, options?: RequestOptionsArgs): Observable<Response> {
-    console.log(environment.apiURL + url, body, options);
     return this.request('post', environment.apiURL + url, body, options);
   }
   public delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -55,7 +54,6 @@ export class HttpService {
   private getByRequestType(reqType : string, url : string, body? : Object, options? : RequestOptionsArgs) : Observable<Response> {
     switch(reqType) {
       case 'get':
-        console.log("test");
         return this.authHttp.get(url, options).share(); // share to return a "hot" Observable!
       case 'post':
         return this.authHttp.post(url, body, options).share();

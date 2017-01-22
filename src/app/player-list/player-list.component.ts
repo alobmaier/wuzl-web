@@ -22,7 +22,6 @@ export class PlayerListComponent implements OnInit {
       .subscribe(
         res => {
           this.players = res;
-          console.log(res);
         },
         error => {
           this.notificationService.error("Server Error", "Could not get players");

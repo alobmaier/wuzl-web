@@ -29,7 +29,6 @@ export class MatchListComponent implements OnInit, OnDestroy {
     this.tournamentService.getCurrentTournament()
       .subscribe(res => {
         this.currentTournament = res;
-        console.log(this.currentTournament);
       });
   }
 

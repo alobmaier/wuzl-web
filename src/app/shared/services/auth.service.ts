@@ -27,7 +27,6 @@ export class AuthService {
   }
 
   public login(username: string, password: string) {
-    console.log("in login", username, password);
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -38,7 +37,6 @@ export class AuthService {
 
     this.authHttp.post('/login', body, {headers: headers})
       .subscribe(response => {
-          console.log(response.json());
           this.saveJwt(response.json().access_token);
 
           this.router.navigate(['/dashboard']);

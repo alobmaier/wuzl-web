@@ -6,6 +6,7 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { SimpleNotificationsModule } from "angular2-notifications";
 import { WuhuRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartModule } from 'angular2-highcharts';
 
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from "./shared/services/auth.service";
@@ -18,7 +19,6 @@ import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlayerListComponent } from './player-list/player-list.component';
-import { AdminComponent } from './admin/admin.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { AttendancePipe } from './shared/pipes/attendance.pipe';
 import { PlayerFormComponent } from './player-form/player-form.component';
@@ -30,6 +30,7 @@ import { TournamentFormComponent } from './tournament-form/tournament-form.compo
 import { MyMatchesComponent } from './my-matches/my-matches.component';
 import { PlayerEditComponent } from './player-edit/player-edit.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -47,7 +48,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavigationComponent,
     DashboardComponent,
     PlayerListComponent,
-    AdminComponent,
     PlayerDetailsComponent,
     AttendancePipe,
     PlayerFormComponent,
@@ -58,7 +58,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TournamentFormComponent,
     MyMatchesComponent,
     PlayerEditComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    StatisticsComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -66,6 +67,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormsModule,
     HttpModule,
     SimpleNotificationsModule,
+    ChartModule,
     WuhuRoutingModule
   ],
   providers: [    

@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
                   <div class="list-group">
-                    <div *ngIf="this.authService.isAdmin && !match.match.hasEnded" class="list-group-item">
+                    <div *ngIf="this.authService.isAdmin() && !match.match.hasEnded" class="list-group-item">
                       <input class="form-control short" type="number" name="goalsTeam1" id="goalsTeam1" [(ngModel)]="match.match.goalsTeam1">
                       -
                       <input class="form-control short" type="number" name="goalsTeam2" id="goalsTeam2" [(ngModel)]="match.match.goalsTeam2"> 

@@ -1,3 +1,4 @@
+import { CurrentStrength } from '../models/models';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { Observable } from 'rxjs/Rx';
@@ -12,6 +13,7 @@ import { environment } from '../../../environments/environment';
 export class PlayerService {
 
   private defaultHeaders : Headers = new Headers();
+
   constructor(private authHttp : HttpService) { 
     this.defaultHeaders.append("Content-Type", "application/json");
   }
@@ -55,6 +57,11 @@ export class PlayerService {
 
     xhr.open('POST', environment.apiURL + `/player/${playerId}/profilepic`, true);
     xhr.send(formData);
+  }
+
+  getStrengthHistory(playerId: number) : Observable<CurrentStrength[]> {
+    return this.authHttp.get('/currentstrength/findallbyplayer/' + playerId)
+      .map(res => <CurrentStrength[]>res.json());
   }
 
   deletePlayer(playerId : number) : Observable<Response> {

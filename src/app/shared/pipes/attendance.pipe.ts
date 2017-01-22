@@ -10,7 +10,6 @@ export class AttendancePipe implements PipeTransform {
   transform(value: AttendanceEnum, args?: any): string[] {
     let days : string[] = [];
 
-    console.log("pipe ", value);
     if((value & AttendanceEnum.Monday) === AttendanceEnum.Monday)
       days.push('Monday');
     if((value & AttendanceEnum.Tuesday) === AttendanceEnum.Tuesday)
@@ -26,7 +25,6 @@ export class AttendancePipe implements PipeTransform {
     if((value & AttendanceEnum.Sunday) === AttendanceEnum.Sunday)
       days.push('Sunday');    
       
-    console.log(days);
     return days;
   }
 

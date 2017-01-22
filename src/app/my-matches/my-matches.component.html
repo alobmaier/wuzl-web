@@ -9,16 +9,16 @@
             </ul>
           </div>
           <div class="col-md-4 text-center livescore" [class.finished]="match.match.hasEnded">
-            <div class="col-sm-2 text-center">
-              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam1()">
+            <div class="col-md-4 text-center">
+              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam1(match.match)">
                 <span class="glyphicon glyphicon-plus"></span>
               </button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
               {{match.match.goalsTeam1}} - {{match.match.goalsTeam2}}
             </div>
-            <div class="col-sm-2 text-center">
-              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam2()">
+            <div class="col-md-4 text-center">
+              <button *ngIf="!match.match.hasEnded" class="btn btn-info" (click)="addGoalTeam2(match.match)">
                 <span class="glyphicon glyphicon-plus"></span>
               </button>
             </div>

@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   login(event, username, password) {
     event.preventDefault();
-    console.log(username, password);
     this.auth.login(username, password);
   }
 }
