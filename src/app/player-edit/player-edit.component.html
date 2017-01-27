@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Edit user</h2>
-  <form (submit)="updatePlayer()">
+  <form (submit)="updatePlayer()" #playerForm="ngForm">
     <!-- picture -->
     <div class="form-group">
       <label>Select profile pic: </label>
@@ -10,30 +10,55 @@
 
     <div class="form-group">
       <label for="firstName">First name:</label>
-      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John" [(ngModel)]="model.firstName">
+      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John" [(ngModel)]="model.firstName" required #firstName="ngModel">
     </div>
+    <div [hidden]="firstName.valid || firstName.pristine"
+      class="alert alert-danger">
+        Enter first name.
+    </div>
+
     <div class="form-group">
       <label for="lastName">Last name:</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Doe" [(ngModel)]="model.lastName">
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Doe" [(ngModel)]="model.lastName" required #lastName="ngModel">
     </div>
+    <div [hidden]="lastName.valid || lastName.pristine"
+      class="alert alert-danger">
+        Enter last name.
+    </div>
+
     <div class="form-group">
       <label for="email">E-Mail:</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@test.com" [(ngModel)]="model.email">
+      <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@test.com" [(ngModel)]="model.email" required #email="ngModel">
     </div>
+    <div [hidden]="email.valid || email.pristine"
+      class="alert alert-danger">
+        Enter email address.
+    </div>
+
     <div class="form-group">
       <label for="userName">User name:</label>
-      <input type="text" class="form-control" id="userName" name="userName" placeholder="joe69" [(ngModel)]="model.userName">
+      <input type="text" class="form-control" id="userName" name="userName" placeholder="joe69" [(ngModel)]="model.userName" required #userName="ngModel">
+    </div>    
+    <div [hidden]="userName.valid || userName.pristine"
+      class="alert alert-danger">
+        Enter user name.
     </div>
+
     <div class="form-group">
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password">
     </div>
     <div class="form-group">
       <label for="role">Role: </label>
-      <select class="form-control" name="role" [(ngModel)]="model.roleId">
+      <select class="form-control" name="role" [(ngModel)]="model.roleId" required #role="ngModel">
         <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
       </select>
     </div>
+    <div [hidden]="role.valid || role.pristine"
+      class="alert alert-danger">
+        Select role for user.
+    </div>
+
     <div class="form-group">
       <label>Attendance: </label>
       <div class="checkbox">
@@ -67,9 +92,8 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button [disabled]="!playerForm.form.valid" type="submit" class="btn btn-primary">Save</button>
     </div>
-    {{model | json}}
 
   </form>
 </div>

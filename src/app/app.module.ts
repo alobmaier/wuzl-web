@@ -35,7 +35,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
-    headerPrefix: ' ',
+    headerPrefix: 'Bearer ',
     //globalHeaders: [{'Content-Type':'application/json'}],
     noJwtError: true
   }), http, options);

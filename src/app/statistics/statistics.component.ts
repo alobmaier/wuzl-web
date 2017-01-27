@@ -122,6 +122,13 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+
+  saveChart(chart) {
+    this.chart = chart;
+    
     this.playerService.getAllPlayers()
       .subscribe(
         res => {
@@ -133,13 +140,9 @@ export class StatisticsComponent implements OnInit {
             this.getHistoryOfPlayer(p);
           });
         }
-      )
+      );
   }
 
-
-  saveChart(chart) {
-    this.chart = chart;
-  }
   getHistoryOfPlayer(dto: PlayerDto) {
     this.playerService.getStrengthHistory(dto.id)
       .subscribe(
@@ -148,7 +151,6 @@ export class StatisticsComponent implements OnInit {
         },
         error => this.notificationService.error("Error", "Player has no history!"),
         () => {
-          this.loaded = true;
 
           let data = [];
 

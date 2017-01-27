@@ -1,7 +1,6 @@
-<div *ngIf="this.loaded">
-    <chart id="chart" [options]="this.options" (load)="saveChart($event.context)">
-    </chart>
-</div>
-<div *ngIf="!this.loaded">
+
+<chart id="chart" [options]="this.options" (load)="saveChart($event.context)"></chart>
+
+<div *ngIf="!this.chart">
   <app-loading-spinner></app-loading-spinner>
 </div>

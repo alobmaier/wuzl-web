@@ -82,27 +82,32 @@ export class TournamentFormComponent implements OnInit {
           tournament = res;
           this.notificationService.success("Success", "Tournament created!");
         },
-        error => this.notificationService.error("Error", error),
+        error => this.notificationService.error("Error", "Check if there is already a tournament for today."),
         () => {
           //2. add players to tournament
-          this.tournamentService.addPlayers(tournament.id, players)
-            .subscribe(
-              res => this.notificationService.success("Success", "Players added to tournament!"),
-              error => this.notificationService.error("Error", error),
-              () => {
-                //3. create matches in tournament
-                this.tournamentService.createMatches(tournament.id, this.numberOfMatches)
-                  .subscribe(
-                    res => this.notificationService.success("Success", "Matches created in tournament!"),
-                    error => this.notificationService.error("Error", error),
-                    () => {
-                      // done
+          if(players.length >= 4) {
+            this.tournamentService.addPlayers(tournament.id, players)
+              .subscribe(
+                res => this.notificationService.success("Success", "Players added to tournament!"),
+                error => this.notificationService.error("Error", "Players could not be added."),
+                () => {
+                  //3. create matches in tournament
+                  this.tournamentService.createMatches(tournament.id, this.numberOfMatches)
+                    .subscribe(
+                      res => this.notificationService.success("Success", "Matches created in tournament!"),
+                      error => this.notificationService.error("Error", "Matches were not created."),
+                      () => {
+                        // done
 
-                      this.router.navigate(['/tournaments']);
-                    }
-                  );
-              }
-          );
+                        this.router.navigate(['/tournaments']);
+                      }
+                    );
+                }
+            );
+          }
+          else {
+            this.notificationService.error("Error", "Please select at least 4 players!");
+          }
         }
     );
   }
